@@ -1,9 +1,9 @@
 /* =========================================================
-   Kenny · Sitio personal
-   Seis temas originales inspirados en géneros de juegos y series.
-   Cada tema solo cambia variables: para crear uno nuevo, copia un
-   bloque [data-theme="..."] y cambia los valores.
-   ========================================================= */
+ *   Kenny · Sitio personal
+ *   Seis temas originales inspirados en géneros de juegos y series.
+ *   Cada tema solo cambia variables: para crear uno nuevo, copia un
+ *   bloque [data-theme="..."] y cambia los valores.
+ *   ========================================================= */
 
 /* ---------- Tema base: Neón Cyber ---------- */
 :root,
@@ -26,10 +26,10 @@
   --title-transform: uppercase;
   --title-spacing: 0.04em;
   --bg-image:
-    linear-gradient(rgba(0, 240, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.06) 1px, transparent 1px),
-    radial-gradient(ellipse at 80% 0%, rgba(255, 43, 214, 0.22), transparent 55%),
-    radial-gradient(ellipse at 0% 100%, rgba(0, 240, 255, 0.18), transparent 55%);
+  linear-gradient(rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+  radial-gradient(ellipse at 80% 0%, rgba(255, 43, 214, 0.22), transparent 55%),
+  radial-gradient(ellipse at 0% 100%, rgba(0, 240, 255, 0.18), transparent 55%);
   --bg-size: 42px 42px, 42px 42px, 100% 100%, 100% 100%;
   --fx: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px);
   --fx-opacity: 0.5;
@@ -55,8 +55,8 @@
   --title-transform: uppercase;
   --title-spacing: 0;
   --bg-image:
-    radial-gradient(#ffffff22 1.5px, transparent 1.5px),
-    linear-gradient(180deg, #1a1030 0%, #3a1650 100%);
+  radial-gradient(#ffffff22 1.5px, transparent 1.5px),
+  linear-gradient(180deg, #1a1030 0%, #3a1650 100%);
   --bg-size: 24px 24px, 100% 100%;
   --fx: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0 2px, transparent 2px 4px);
   --fx-opacity: 0.6;
@@ -82,8 +82,8 @@
   --title-transform: none;
   --title-spacing: 0.02em;
   --bg-image:
-    radial-gradient(ellipse at 50% -10%, rgba(226, 180, 86, 0.25), transparent 60%),
-    radial-gradient(ellipse at 50% 120%, rgba(127, 191, 106, 0.12), transparent 60%);
+  radial-gradient(ellipse at 50% -10%, rgba(226, 180, 86, 0.25), transparent 60%),
+  radial-gradient(ellipse at 50% 120%, rgba(127, 191, 106, 0.12), transparent 60%);
   --bg-size: 100% 100%, 100% 100%;
   --fx: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.6) 100%);
   --fx-opacity: 1;
@@ -109,13 +109,13 @@
   --title-transform: uppercase;
   --title-spacing: 0.08em;
   --bg-image:
-    radial-gradient(1px 1px at 20% 30%, #fff, transparent),
-    radial-gradient(1px 1px at 70% 80%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 40% 70%, #cfe0ff, transparent),
-    radial-gradient(1px 1px at 85% 20%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 10% 85%, #ffd9a8, transparent),
-    radial-gradient(ellipse at 90% 10%, rgba(122, 184, 255, 0.2), transparent 50%),
-    radial-gradient(ellipse at 0% 90%, rgba(255, 179, 71, 0.12), transparent 50%);
+  radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+  radial-gradient(1px 1px at 70% 80%, #fff, transparent),
+  radial-gradient(1.5px 1.5px at 40% 70%, #cfe0ff, transparent),
+  radial-gradient(1px 1px at 85% 20%, #fff, transparent),
+  radial-gradient(1.5px 1.5px at 10% 85%, #ffd9a8, transparent),
+  radial-gradient(ellipse at 90% 10%, rgba(122, 184, 255, 0.2), transparent 50%),
+  radial-gradient(ellipse at 0% 90%, rgba(255, 179, 71, 0.12), transparent 50%);
   --bg-size: 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 100% 100%, 100% 100%;
   --fx: none;
   --fx-opacity: 0;
@@ -141,7 +141,7 @@
   --title-transform: none;
   --title-spacing: 0.04em;
   --bg-image:
-    radial-gradient(ellipse at 50% 0%, rgba(120, 10, 10, 0.35), transparent 60%);
+  radial-gradient(ellipse at 50% 0%, rgba(120, 10, 10, 0.35), transparent 60%);
   --bg-size: 100% 100%;
   --fx: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
   --fx-opacity: 1;
@@ -167,17 +167,17 @@
   --title-transform: none;
   --title-spacing: 0;
   --bg-image:
-    radial-gradient(circle at 15% 20%, rgba(255, 179, 207, 0.55), transparent 30%),
-    radial-gradient(circle at 85% 10%, rgba(123, 97, 255, 0.18), transparent 30%),
-    radial-gradient(circle at 70% 90%, rgba(255, 179, 207, 0.4), transparent 35%);
+  radial-gradient(circle at 15% 20%, rgba(255, 179, 207, 0.55), transparent 30%),
+  radial-gradient(circle at 85% 10%, rgba(123, 97, 255, 0.18), transparent 30%),
+  radial-gradient(circle at 70% 90%, rgba(255, 179, 207, 0.4), transparent 35%);
   --bg-size: 100% 100%, 100% 100%, 100% 100%;
   --fx: none;
   --fx-opacity: 0;
 }
 
 /* =========================================================
-   Base
-   ========================================================= */
+ *   Base
+ *   ========================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 @media (prefers-reduced-motion: reduce) {
@@ -236,8 +236,8 @@ code {
 }
 
 /* =========================================================
-   Barra superior
-   ========================================================= */
+ *   Barra superior
+ *   ========================================================= */
 .topbar {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
@@ -363,8 +363,8 @@ code {
 .sw-anime   { background: linear-gradient(135deg, #ffb3cf 50%, #7b61ff 50%); }
 
 /* =========================================================
-   Layout general
-   ========================================================= */
+ *   Layout general
+ *   ========================================================= */
 main {
   width: min(1120px, 100%);
   margin: 0 auto;
@@ -408,8 +408,8 @@ main {
 .btn-sm { padding: 6px 12px; font-size: 0.85rem; }
 
 /* =========================================================
-   Hero
-   ========================================================= */
+ *   Hero
+ *   ========================================================= */
 .hero {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -517,8 +517,8 @@ main {
 }
 
 /* =========================================================
-   Secciones
-   ========================================================= */
+ *   Secciones
+ *   ========================================================= */
 .section { padding: 64px 0; }
 .section-title {
   display: flex;
@@ -712,3 +712,27 @@ main {
 /* Animación de entrada */
 .reveal { transform: translateY(14px); transition: transform 0.6s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
+
+/* ===== Reseñas y canciones (Inventario) ===== */
+.inventory { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.entries, .songs { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 14px; }
+.entry { display: grid; gap: 4px; padding-top: 14px; border-top: 1px dashed var(--panel-border); }
+.entry:first-child { padding-top: 0; border-top: 0; }
+.entry-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.entry-head strong { font-family: var(--font-display); font-size: 1rem; letter-spacing: var(--title-spacing); }
+[data-theme="pixel"] .entry-head strong { font-size: 0.72rem; line-height: 1.7; }
+.entry-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-2); text-transform: uppercase; letter-spacing: 0.06em; }
+[data-theme="pixel"] .entry-meta { font-size: 0.55rem; }
+.entry-quote { margin: 0; color: var(--muted); font-style: italic; }
+.entry-quote::before { content: "“"; color: var(--accent); }
+.entry-quote::after { content: "”"; color: var(--accent); }
+.songs { counter-reset: song; gap: 10px; }
+.song { counter-increment: song; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 10px 0; border-top: 1px dashed var(--panel-border); }
+.song:first-child { border-top: 0; padding-top: 0; }
+.song-name { min-width: 0; }
+.song-name::before { content: counter(song) "."; display: inline-block; min-width: 1.6em; font-family: var(--font-mono); color: var(--accent); font-weight: 700; }
+.song-links { display: flex; gap: 6px; }
+.song-links a { font-size: 0.75rem; text-decoration: none; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--panel-border); color: var(--accent); transition: border-color 0.2s, background 0.2s; }
+.song-links a:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+[data-theme="pixel"] .song-links a { border-radius: 0; }
+.contact-email { font-family: var(--font-mono); color: var(--text) !important; user-select: all; word-break: break-all; }
