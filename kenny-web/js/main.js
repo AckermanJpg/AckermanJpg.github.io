@@ -6,6 +6,11 @@
 (function () {
   "use strict";
 
+  // Anti-clickjacking: si alguien mete el sitio dentro de un iframe ajeno, se sale de él.
+  if (window.top !== window.self) {
+    try { window.top.location = window.self.location.href; } catch (e) { document.documentElement.hidden = true; }
+  }
+
   var THEMES = ["cyber", "pixel", "fantasy", "space", "horror", "anime"];
   var STORAGE_KEY = "kenny-theme";
   var root = document.documentElement;

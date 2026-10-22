@@ -1,0 +1,5 @@
+# Si encuentras una vulnerabilidad en este sitio, avísame por aquí.
+Contact: https://github.com/AckermanJpg
+Expires: 2027-10-21T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://ackermanjpg.github.io/.well-known/security.txt
