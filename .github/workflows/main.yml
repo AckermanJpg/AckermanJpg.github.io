@@ -17,14 +17,11 @@ concurrency:
 jobs:
   revisar:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: kenny-web
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
       - name: Revisar JavaScript
         run: for f in js/*.js; do node --check "$f"; done
       - name: Revisar que no haya scripts inline
@@ -49,7 +46,7 @@ jobs:
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: kenny-web/_site
+          path: _site
 
   publicar:
     needs: revisar
