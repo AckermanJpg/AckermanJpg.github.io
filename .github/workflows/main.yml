@@ -1,0 +1,62 @@
+name: Revisar y publicar
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: kenny-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Revisar JavaScript
+        run: for f in js/*.js; do node --check "$f"; done
+      - name: Revisar que no haya scripts inline
+        run: |
+          if grep -nE '<script>|<script [^>]*>[^<]+' *.html | grep -v 'application/ld+json' | grep -v 'src='; then
+            echo "Hay JavaScript inline. Muévelo a js/." && exit 1
+          fi
+      - name: Revisar que no haya claves secretas
+        run: |
+          if grep -rnEi '(api[_-]?key|secret|password|token)\s*[:=]\s*["'"'"'][^"'"'"']{8,}' --include=*.js --include=*.html .; then
+            echo "Posible secreto en el código." && exit 1
+          fi
+      - name: Validar HTML (solo avisa, no bloquea)
+        continue-on-error: true
+        run: npx --yes html-validate@9 "*.html"
+      - name: Preparar archivos del sitio
+        run: |
+          mkdir _site
+          for f in index.html 404.html robots.txt sitemap.xml css js img .well-known; do
+            if [ -e "$f" ]; then cp -r "$f" _site/; fi
+          done
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: kenny-web/_site
+
+  publicar:
+    needs: revisar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
