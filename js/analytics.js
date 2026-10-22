@@ -9,7 +9,7 @@
 (function () {
   "use strict";
 
-  var GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // <-- pega aquí tu ID de GA4
+  var GA_MEASUREMENT_ID = "G-MC5V2JL08S"; // <-- pega aquí tu ID de GA4
   var CONSENT_KEY = "kenny-consent";      // "granted" | "denied"
   var enabled = /^G-[A-Z0-9]{6,}$/.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== "G-XXXXXXXXXX";
 
