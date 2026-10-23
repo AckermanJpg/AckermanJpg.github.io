@@ -1,11 +1,3 @@
-/* =========================================================
- *   Kenny · Sitio personal
- *   Seis temas originales inspirados en géneros de juegos y series.
- *   Cada tema solo cambia variables: para crear uno nuevo, copia un
- *   bloque [data-theme="..."] y cambia los valores.
- *   ========================================================= */
-
-/* ---------- Tema base: Neón Cyber ---------- */
 :root,
 [data-theme="cyber"] {
   --bg: #05060f;
@@ -35,7 +27,6 @@
   --fx-opacity: 0.5;
 }
 
-/* ---------- Arcade Pixel (retro 8-bit) ---------- */
 [data-theme="pixel"] {
   --bg: #1a1030;
   --bg-2: #241640;
@@ -62,7 +53,6 @@
   --fx-opacity: 0.6;
 }
 
-/* ---------- Reino RPG (fantasía) ---------- */
 [data-theme="fantasy"] {
   --bg: #17110a;
   --bg-2: #21180e;
@@ -89,7 +79,6 @@
   --fx-opacity: 1;
 }
 
-/* ---------- Estación Orbital (ciencia ficción) ---------- */
 [data-theme="space"] {
   --bg: #030814;
   --bg-2: #07122a;
@@ -121,7 +110,6 @@
   --fx-opacity: 0;
 }
 
-/* ---------- Survival Terror ---------- */
 [data-theme="horror"] {
   --bg: #0b0909;
   --bg-2: #141010;
@@ -147,7 +135,6 @@
   --fx-opacity: 1;
 }
 
-/* ---------- Sakura Anime ---------- */
 [data-theme="anime"] {
   --bg: #fff4f8;
   --bg-2: #ffe8f0;
@@ -175,9 +162,6 @@
   --fx-opacity: 0;
 }
 
-/* =========================================================
- *   Base
- *   ========================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 @media (prefers-reduced-motion: reduce) {
@@ -235,9 +219,6 @@ code {
   outline-offset: 3px;
 }
 
-/* =========================================================
- *   Barra superior
- *   ========================================================= */
 .topbar {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
@@ -306,7 +287,6 @@ code {
   .theme-toggle { margin-left: auto; }
 }
 
-/* Panel de temas */
 .theme-panel {
   position: fixed;
   top: 68px;
@@ -362,9 +342,6 @@ code {
 .sw-horror  { background: linear-gradient(135deg, #d11a1a 50%, #0b0909 50%); }
 .sw-anime   { background: linear-gradient(135deg, #ffb3cf 50%, #7b61ff 50%); }
 
-/* =========================================================
- *   Layout general
- *   ========================================================= */
 main {
   width: min(1120px, 100%);
   margin: 0 auto;
@@ -407,9 +384,6 @@ main {
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 .btn-sm { padding: 6px 12px; font-size: 0.85rem; }
 
-/* =========================================================
- *   Hero
- *   ========================================================= */
 .hero {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -446,7 +420,6 @@ main {
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
-/* Ficha de personaje */
 .stat-card {
   background: var(--panel);
   border: 1px solid var(--panel-border);
@@ -516,9 +489,6 @@ main {
   .hero { grid-template-columns: 1fr; min-height: auto; padding: 40px 0; }
 }
 
-/* =========================================================
- *   Secciones
- *   ========================================================= */
 .section { padding: 64px 0; }
 .section-title {
   display: flex;
@@ -548,7 +518,6 @@ main {
 .prose p { margin: 0 0 14px; }
 .prose p:last-child { margin-bottom: 0; }
 
-/* Habilidades */
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -568,7 +537,6 @@ main {
 [data-theme="pixel"] .repo h4 { font-size: 0.72rem; line-height: 1.7; }
 .skill p { margin: 0 0 14px; color: var(--muted); font-size: 0.9rem; }
 
-/* Misiones */
 .quests {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -595,7 +563,6 @@ main {
 }
 [data-theme="pixel"] .tags li { border-radius: 0; }
 
-/* Repositorios */
 .repos-head {
   display: flex;
   align-items: center;
@@ -625,7 +592,6 @@ main {
   color: var(--muted);
 }
 
-/* Logros */
 .achievements {
   list-style: none;
   padding: 0;
@@ -649,7 +615,6 @@ main {
 }
 .achv.locked { opacity: 0.55; filter: grayscale(0.8); }
 
-/* Inventario */
 .inventory {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -661,12 +626,10 @@ main {
 .list { margin: 0; padding-left: 18px; font-size: 0.9rem; }
 .list li::marker { color: var(--accent); }
 
-/* Contacto */
 .contact { padding: 28px; text-align: center; }
 .contact p { margin: 0 0 18px; color: var(--muted); }
 .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
-/* Footer */
 .footer {
   margin-top: 40px;
   padding: 32px clamp(16px, 4vw, 48px) 120px;
@@ -685,7 +648,6 @@ main {
   cursor: pointer;
 }
 
-/* Banner de consentimiento */
 .consent {
   position: fixed;
   left: 50%;
@@ -709,11 +671,9 @@ main {
 
 .noscript { text-align: center; padding: 12px; color: var(--muted); }
 
-/* Animación de entrada */
 .reveal { transform: translateY(14px); transition: transform 0.6s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
-/* ===== Reseñas y canciones (Inventario) ===== */
 .inventory { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
 .entries, .songs { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 14px; }
 .entry { display: grid; gap: 4px; padding-top: 14px; border-top: 1px dashed var(--panel-border); }
@@ -736,3 +696,7 @@ main {
 .song-links a:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
 [data-theme="pixel"] .song-links a { border-radius: 0; }
 .contact-email { font-family: var(--font-mono); color: var(--text) !important; user-select: all; word-break: break-all; }
+
+.quest { padding: 0; }
+.quest-body { padding: 22px; display: flex; flex-direction: column; }
+.quest-link { align-self: flex-start; margin-top: 16px; }

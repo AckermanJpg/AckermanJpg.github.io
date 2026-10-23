@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- ====== Seguridad (GitHub Pages no permite cabeceras, así que van aquí) ====== -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <!-- ====== SEO ====== -->
   <title>Kenny · Ingeniería en Sistemas, IA y Ciberseguridad</title>
   <meta name="description" content="Portafolio personal de Kenny: estudiante de Ingeniería en Sistemas con IA y Ciberseguridad en Guatemala. Proyectos, habilidades, logros y gustos gamer.">
   <meta name="author" content="Kenny">
@@ -15,7 +13,6 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#05060f">
 
-  <!-- Open Graph / redes sociales (vista previa al compartir el enlace) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Kenny · Player One">
   <meta property="og:description" content="Ingeniería en Sistemas, IA y Ciberseguridad. Proyectos, logros y gustos gamer.">
@@ -24,9 +21,6 @@
   <meta property="og:locale" content="es_GT">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- ====== Google Search Console ======
-       Pega aquí el código que te da Search Console (método "Etiqueta HTML").
-       Si verificas por DNS (recomendado con Cloudflare), puedes borrar esta línea. -->
   <meta name="google-site-verification" content="PEGA_AQUI_TU_CODIGO_DE_VERIFICACION">
 
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -35,7 +29,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Creepster&family=Inter:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@500;800&family=Orbitron:wght@500;800&family=Press+Start+2P&family=Share+Tech+Mono&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Datos estructurados para Google (sin JavaScript inline: es JSON, no se ejecuta) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,7 +42,6 @@
   }
   </script>
 
-  <!-- Analítica + consentimiento: archivos propios, sin código inline (CSP estricta) -->
   <script src="js/analytics.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
@@ -57,7 +49,6 @@
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="fx-layer" aria-hidden="true"></div>
 
-  <!-- ===================== NAV ===================== -->
   <header class="topbar">
     <a class="brand" href="#inicio" aria-label="Inicio">
       <span class="brand-mark" aria-hidden="true">K</span>
@@ -78,7 +69,6 @@
     </button>
   </header>
 
-  <!-- Selector de temas -->
   <div id="theme-panel" class="theme-panel" role="dialog" aria-label="Elegir tema visual" hidden>
     <p class="theme-panel-title">Selecciona tu mundo</p>
     <div class="theme-grid">
@@ -92,7 +82,6 @@
   </div>
 
   <main id="contenido">
-    <!-- ===================== HERO ===================== -->
     <section id="inicio" class="hero">
       <div class="hero-text">
         <p class="kicker">// PLAYER 1 · PRESS START</p>
@@ -129,7 +118,6 @@
       </aside>
     </section>
 
-    <!-- ===================== LORE / SOBRE MÍ ===================== -->
     <section id="lore" class="section">
       <h2 class="section-title"><span class="num">01</span> Lore del personaje</h2>
       <div class="panel prose">
@@ -145,7 +133,6 @@
       </div>
     </section>
 
-    <!-- ===================== HABILIDADES ===================== -->
     <section id="habilidades" class="section">
       <h2 class="section-title"><span class="num">02</span> Árbol de habilidades</h2>
       <div class="skills">
@@ -182,32 +169,20 @@
       </div>
     </section>
 
-    <!-- ===================== MISIONES / PROYECTOS ===================== -->
     <section id="misiones" class="section">
       <h2 class="section-title"><span class="num">03</span> Misiones completadas</h2>
       <div class="quests">
         <article class="quest panel">
-          <p class="quest-tag">Misión principal</p>
-          <h3>Generador de CV en PDF</h3>
-          <p>Currículum profesional generado con Python y ReportLab, con diseño y estructura hechos por código.</p>
-          <ul class="tags"><li>Python</li><li>ReportLab</li><li>PDF</li></ul>
-        </article>
-        <article class="quest panel">
-          <p class="quest-tag">Misión secundaria</p>
-          <h3>Laboratorio de filtros fotográficos</h3>
-          <p>Edición de fotos con código: filtros vintage, eliminación de objetos y realce selectivo de color.</p>
-          <ul class="tags"><li>OpenCV</li><li>NumPy</li><li>PIL</li></ul>
-        </article>
-        <article class="quest panel">
-          <p class="quest-tag">Misión en curso</p>
-          <h3>Esta página web</h3>
-          <p>Sitio personal con seis temas visuales, analítica de Google y cabeceras de seguridad estrictas.</p>
-          <ul class="tags"><li>HTML</li><li>CSS</li><li>Seguridad web</li></ul>
+          <div class="quest-body">
+            <p class="quest-tag">Misión en curso</p>
+            <h3>Esta página web</h3>
+            <p>Mi sitio personal: seis temas visuales, reseñas de lo que me gusta, Google Analytics con banner de cookies y una política de seguridad que bloquea scripts externos. Se publica solo con cada cambio en GitHub.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li></ul>
+            <a class="btn btn-ghost btn-sm quest-link" href="https://github.com/AckermanJpg/AckermanJpg.github.io" rel="noopener noreferrer" target="_blank" data-track="quest_pagina_web">Ver código ↗</a>
+          </div>
         </article>
       </div>
 
-      <!-- Repositorios de GitHub: se cargan solos desde la API pública de GitHub.
-           Cada repo nuevo que publiques en github.com/AckermanJpg aparece aquí sin tocar el código. -->
       <div class="repos-head">
         <h3 class="sub-title">Repositorios en GitHub</h3>
         <a class="btn btn-ghost btn-sm" href="https://github.com/AckermanJpg" rel="noopener noreferrer" target="_blank" data-track="link_github_repos">@AckermanJpg ↗</a>
@@ -217,7 +192,6 @@
       </div>
     </section>
 
-    <!-- ===================== LOGROS ===================== -->
     <section id="logros" class="section">
       <h2 class="section-title"><span class="num">04</span> Logros desbloqueados</h2>
       <ul class="achievements">
@@ -248,7 +222,6 @@
       </ul>
     </section>
 
-    <!-- ===================== INVENTARIO / GUSTOS ===================== -->
     <section id="inventario" class="section">
       <h2 class="section-title"><span class="num">05</span> Inventario</h2>
       <div class="inventory">
@@ -350,7 +323,6 @@
       </div>
     </section>
 
-    <!-- ===================== CONTACTO ===================== -->
     <section id="contacto" class="section">
       <h2 class="section-title"><span class="num">06</span> Contacto · Modo multijugador</h2>
       <div class="panel contact">
@@ -372,7 +344,6 @@
     </p>
   </footer>
 
-  <!-- Banner de consentimiento (Consent Mode v2) -->
   <div class="consent" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
     <p>
       Uso cookies de <strong>Google Analytics</strong> para saber cuántas personas visitan el sitio y mejorarlo.
