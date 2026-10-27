@@ -1,23 +1,14 @@
-/* =========================================================
-   Google Analytics 4 + Consent Mode v2 + Core Web Vitals
-   ---------------------------------------------------------
-   1) Cambia GA_MEASUREMENT_ID por tu ID real (empieza con "G-").
-   2) Mientras siga en G-XXXXXXXXXX, no se carga nada (útil en pruebas).
-   Todo vive en este archivo para no necesitar scripts inline,
-   así la Content-Security-Policy puede ser estricta.
-   ========================================================= */
 (function () {
   "use strict";
 
-  var GA_MEASUREMENT_ID = "G-MC5V2JL08S"; // <-- pega aquí tu ID de GA4
-  var CONSENT_KEY = "kenny-consent";      // "granted" | "denied"
+  var GA_MEASUREMENT_ID = "G-MC5V2JL08S";
+  var CONSENT_KEY = "kenny-consent";
   var enabled = /^G-[A-Z0-9]{6,}$/.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== "G-XXXXXXXXXX";
 
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = gtag;
 
-  // --- Consent Mode v2: todo denegado hasta que la persona acepte ---
   gtag("consent", "default", {
     ad_storage: "denied",
     ad_user_data: "denied",
@@ -34,7 +25,7 @@
     try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
   }
   function saveConsent(v) {
-    try { localStorage.setItem(CONSENT_KEY, v); } catch (e) { /* sin almacenamiento */ }
+    try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
   }
   function applyConsent(v) {
     gtag("consent", "update", { analytics_storage: v === "granted" ? "granted" : "denied" });
@@ -43,23 +34,20 @@
   var stored = readConsent();
   if (stored) applyConsent(stored);
 
-  // --- Carga de gtag.js (Consent Mode envía pings sin cookies si se rechaza) ---
   if (enabled) {
     var s = document.createElement("script");
     s.async = true;
     s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_MEASUREMENT_ID);
     document.head.appendChild(s);
     gtag("js", new Date());
-    gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
+    gtag("config", GA_MEASUREMENT_ID);
   }
 
-  // Función pública para eventos personalizados (usada por main.js)
   window.kTrack = function (name, params) {
     if (!enabled) return;
     gtag("event", name, params || {});
   };
 
-  // --- Banner de consentimiento ---
   document.addEventListener("DOMContentLoaded", function () {
     var banner = document.querySelector(".consent");
     if (!banner) return;
@@ -78,7 +66,6 @@
     });
   });
 
-  // --- Core Web Vitals hacia GA4 (LCP, CLS, INP aproximado) ---
   if (!enabled || !("PerformanceObserver" in window)) return;
 
   function send(name, value) {
@@ -109,5 +96,5 @@
       send("CLS", cls);
       if (inp) send("INP", inp);
     });
-  } catch (e) { /* navegador sin soporte */ }
+  } catch (e) {}
 })();

@@ -40,7 +40,7 @@ jobs:
       - name: Preparar archivos del sitio
         run: |
           mkdir _site
-          for f in index.html 404.html robots.txt sitemap.xml css js img .well-known; do
+          for f in index.html 404.html privacidad.html robots.txt sitemap.xml css js img fonts .well-known; do
             if [ -e "$f" ]; then cp -r "$f" _site/; fi
           done
           touch _site/.nojekyll

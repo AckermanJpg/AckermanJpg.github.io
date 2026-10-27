@@ -1,39 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" data-theme="cyber">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <title>Kenny · Ingeniería en Sistemas, IA y Ciberseguridad</title>
-  <meta name="description" content="Portafolio personal de Kenny: estudiante de Ingeniería en Sistemas con IA y Ciberseguridad en Guatemala. Proyectos, habilidades, logros y gustos gamer.">
-  <meta name="author" content="Kenny">
+  <title>Kenny Espinoza · Ingeniería en Sistemas, IA y Ciberseguridad</title>
+  <meta name="description" content="Portafolio personal de Kenny Espinoza: estudiante de Ingeniería en Sistemas con IA y Ciberseguridad en Guatemala. Proyectos, habilidades, logros y gustos gamer.">
+  <meta name="author" content="Kenny Espinoza">
   <link rel="canonical" href="https://ackermanjpg.github.io/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#05060f">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Kenny · Player One">
+  <meta property="og:title" content="Kenny Espinoza · Player One">
   <meta property="og:description" content="Ingeniería en Sistemas, IA y Ciberseguridad. Proyectos, logros y gustos gamer.">
   <meta property="og:url" content="https://ackermanjpg.github.io/">
   <meta property="og:image" content="https://ackermanjpg.github.io/img/og-cover.png">
   <meta property="og:locale" content="es_GT">
   <meta name="twitter:card" content="summary_large_image">
 
-  <meta name="google-site-verification" content="PEGA_AQUI_TU_CODIGO_DE_VERIFICACION">
-
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Creepster&family=Inter:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@500;800&family=Orbitron:wght@500;800&family=Press+Start+2P&family=Share+Tech+Mono&display=swap">
+  <link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/orbitron-800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/theme-init.js"></script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Kenny",
+    "name": "Kenny Espinoza",
     "url": "https://ackermanjpg.github.io/",
     "jobTitle": "Estudiante de Ingeniería en Sistemas con IA y Ciberseguridad",
     "address": { "@type": "PostalAddress", "addressCountry": "GT" },
@@ -50,12 +48,13 @@
   <div class="fx-layer" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Inicio">
+    <a class="brand" href="#inicio" aria-label="Kenny, ir al inicio">
       <span class="brand-mark" aria-hidden="true">K</span>
       <span class="brand-name">KENNY<span class="blink">_</span></span>
     </a>
 
-    <nav class="nav" aria-label="Secciones">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav id="nav" class="nav" aria-label="Secciones">
       <a href="#lore">Lore</a>
       <a href="#habilidades">Habilidades</a>
       <a href="#misiones">Misiones</a>
@@ -96,7 +95,7 @@
         </div>
       </div>
 
-      <aside class="stat-card" aria-label="Ficha de personaje">
+      <aside class="stat-card panel" aria-label="Ficha de personaje">
         <div class="stat-head">
           <span class="avatar" aria-hidden="true">K</span>
           <div>
@@ -112,7 +111,7 @@
           <div><dt>Estado</dt><dd><span class="dot"></span> Disponible para proyectos</dd></div>
         </dl>
         <div class="xp">
-          <div class="xp-label"><span>XP a siguiente nivel</span><span>68%</span></div>
+          <div class="xp-label"><span>XP a siguiente nivel (autoevaluación)</span><span>68%</span></div>
           <div class="bar"><span class="bar-fill" data-fill="68"></span></div>
         </div>
       </aside>
@@ -135,6 +134,7 @@
 
     <section id="habilidades" class="section">
       <h2 class="section-title"><span class="num">02</span> Árbol de habilidades</h2>
+      <p class="section-note">Los niveles son mi propia autoevaluación.</p>
       <div class="skills">
         <article class="skill panel">
           <h3>Python</h3>
@@ -207,7 +207,7 @@
         <h3 class="sub-title">Repositorios en GitHub</h3>
         <a class="btn btn-ghost btn-sm" href="https://github.com/AckermanJpg" rel="noopener noreferrer" target="_blank" data-track="link_github_repos">@AckermanJpg ↗</a>
       </div>
-      <div class="repos" id="repos" data-github-user="AckermanJpg" aria-live="polite">
+      <div class="repos" id="repos" data-github-user="AckermanJpg" data-hide="notasGenerales" aria-live="polite">
         <p class="muted repos-status">Cargando repositorios…</p>
       </div>
     </section>
@@ -357,17 +357,18 @@
   </main>
 
   <footer class="footer">
-    <p>© <span id="year">2026</span> Kenny · Hecho a mano en Guatemala</p>
+    <p>© <span id="year">2026</span> · Hecho por Kenny Espinoza</p>
     <p class="muted">
-      Este sitio usa Google Analytics solo si lo aceptas.
+      Las cookies de Google Analytics solo se guardan si las aceptas.
       <button type="button" class="linklike" data-open-consent>Preferencias de cookies</button>
+      · <a class="linklike" href="privacidad.html">Privacidad</a>
     </p>
   </footer>
 
   <div class="consent" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
     <p>
       Uso cookies de <strong>Google Analytics</strong> para saber cuántas personas visitan el sitio y mejorarlo.
-      No vendo ni comparto tus datos.
+      No vendo tus datos ni los uso para publicidad. <a href="privacidad.html">Más detalles</a>.
     </p>
     <div class="consent-actions">
       <button type="button" class="btn btn-ghost" data-consent="denied">Rechazar</button>

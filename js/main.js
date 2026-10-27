@@ -1,12 +1,6 @@
-/* =========================================================
-   Interacción del sitio: temas, animaciones y repos de GitHub.
-   Regla de seguridad: nunca se usa innerHTML con datos externos;
-   todo se inserta con textContent para evitar XSS.
-   ========================================================= */
 (function () {
   "use strict";
 
-  // Anti-clickjacking: si alguien mete el sitio dentro de un iframe ajeno, se sale de él.
   if (window.top !== window.self) {
     try { window.top.location = window.self.location.href; } catch (e) { document.documentElement.hidden = true; }
   }
@@ -19,12 +13,11 @@
     if (typeof window.kTrack === "function") window.kTrack(name, params || {});
   }
 
-  /* ---------- Temas ---------- */
   function readTheme() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
   function saveTheme(t) {
-    try { localStorage.setItem(STORAGE_KEY, t); } catch (e) { /* modo privado */ }
+    try { localStorage.setItem(STORAGE_KEY, t); } catch (e) {}
   }
   function applyTheme(t, fromUser) {
     if (THEMES.indexOf(t) === -1) t = "cyber";
@@ -38,24 +31,39 @@
 
   var toggle = document.querySelector(".theme-toggle");
   var panel = document.getElementById("theme-panel");
+  var navToggle = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("nav");
   function setPanel(open) {
     if (!panel || !toggle) return;
+    if (open) setNav(false);
     panel.hidden = !open;
     toggle.setAttribute("aria-expanded", String(open));
   }
+  function setNav(open) {
+    if (!nav || !navToggle) return;
+    if (open) setPanel(false);
+    nav.classList.toggle("is-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+  }
   if (toggle) toggle.addEventListener("click", function () { setPanel(panel.hidden); });
+  if (navToggle) navToggle.addEventListener("click", function () { setNav(!nav.classList.contains("is-open")); });
+  if (nav) nav.addEventListener("click", function (e) { if (e.target.closest("a")) setNav(false); });
   document.querySelectorAll("[data-set-theme]").forEach(function (b) {
     b.addEventListener("click", function () {
       applyTheme(b.getAttribute("data-set-theme"), true);
       setPanel(false);
     });
   });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setPanel(false); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (nav && nav.classList.contains("is-open")) { setNav(false); navToggle.focus(); }
+    setPanel(false);
+  });
   document.addEventListener("click", function (e) {
     if (panel && !panel.hidden && !panel.contains(e.target) && !toggle.contains(e.target)) setPanel(false);
+    if (nav && nav.classList.contains("is-open") && !nav.contains(e.target) && !navToggle.contains(e.target)) setNav(false);
   });
 
-  /* ---------- Barras de habilidad y aparición al hacer scroll ---------- */
   function fillBar(el) {
     var v = parseInt(el.getAttribute("data-fill"), 10);
     if (!isNaN(v)) el.style.width = Math.max(0, Math.min(100, v)) + "%";
@@ -76,17 +84,14 @@
     document.querySelectorAll(".bar-fill").forEach(fillBar);
   }
 
-  /* ---------- Clics rastreables (botones y enlaces externos) ---------- */
   document.addEventListener("click", function (e) {
     var a = e.target.closest("[data-track]");
     if (a) track("cta_click", { label: a.getAttribute("data-track") });
   });
 
-  /* ---------- Año del footer ---------- */
   var y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 
-  /* ---------- Repositorios de GitHub ---------- */
   var box = document.getElementById("repos");
   if (box) loadRepos(box);
 
@@ -94,15 +99,16 @@
     var user = container.getAttribute("data-github-user");
     if (!/^[A-Za-z0-9-]{1,39}$/.test(user || "")) return;
     var status = container.querySelector(".repos-status");
+    var hidden = (container.getAttribute("data-hide") || "").toLowerCase().split(/\s+/);
 
-    fetch("https://api.github.com/users/" + user + "/repos?sort=updated&per_page=6", {
+    fetch("https://api.github.com/users/" + user + "/repos?sort=updated&per_page=100", {
       headers: { Accept: "application/vnd.github+json" },
       referrerPolicy: "no-referrer"
     })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (repos) {
         if (!Array.isArray(repos)) throw new Error("formato");
-        repos = repos.filter(function (r) { return !r.fork; });
+        repos = repos.filter(function (r) { return !r.fork && hidden.indexOf(String(r.name).toLowerCase()) === -1; }).slice(0, 6);
         if (status) status.remove();
         if (!repos.length) {
           container.appendChild(textEl("p", "Pronto habrá repositorios aquí.", "muted"));
@@ -125,7 +131,6 @@
   function repoCard(r) {
     var a = document.createElement("a");
     a.className = "repo panel";
-    // Solo se aceptan URLs de github.com
     var url = String(r.html_url || "");
     a.href = /^https:\/\/github\.com\//.test(url) ? url : "https://github.com/";
     a.target = "_blank";
