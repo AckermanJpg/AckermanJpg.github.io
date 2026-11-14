@@ -36,8 +36,7 @@ jobs:
           if grep -rnEi '(api[_-]?key|secret|password|token)\s*[:=]\s*["'"'"'][^"'"'"']{8,}' --include=*.js --include=*.html .; then
             echo "Posible secreto en el código." && exit 1
           fi
-      - name: Validar HTML (solo avisa, no bloquea)
-        continue-on-error: true
+      - name: Validar HTML
         run: npx --yes html-validate@9 "*.html"
       - name: Preparar archivos del sitio
         run: |

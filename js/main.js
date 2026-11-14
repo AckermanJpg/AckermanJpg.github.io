@@ -195,7 +195,8 @@
       var img = document.createElement("img");
       img.className = "log-img";
       img.src = src;
-      img.alt = "Imagen de la entrada: " + it.titulo.trim();
+      var alt = typeof it.alt === "string" ? it.alt.trim().slice(0, 200) : "";
+      img.alt = alt || "Imagen de la entrada: " + it.titulo.trim();
       img.loading = "lazy";
       img.decoding = "async";
       card.appendChild(img);

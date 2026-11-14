@@ -31,3 +31,7 @@ content:
         label: Imagen
         type: image
         required: false
+      - name: alt
+        label: Descripción de la imagen
+        type: string
+        required: false
