@@ -37,7 +37,7 @@ jobs:
             echo "Posible secreto en el código." && exit 1
           fi
       - name: Validar HTML
-        run: npx --yes html-validate@9 "*.html"
+        run: npx --yes html-validate@9.7.1 "*.html"
       - name: Preparar archivos del sitio
         run: |
           mkdir _site

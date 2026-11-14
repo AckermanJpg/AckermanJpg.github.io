@@ -35,3 +35,5 @@ content:
         label: Descripción de la imagen
         type: string
         required: false
+        options:
+          maxlength: 200
