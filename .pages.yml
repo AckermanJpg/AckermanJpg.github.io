@@ -1,0 +1,33 @@
+media:
+  input: img/bitacora
+  output: /img/bitacora
+  categories: [image]
+
+content:
+  - name: bitacora
+    label: Bitácora
+    type: file
+    path: data/bitacora.json
+    format: json
+    list: true
+    fields:
+      - name: titulo
+        label: Título
+        type: string
+      - name: fecha
+        label: Fecha
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: proyecto
+        label: Proyecto
+        type: select
+        options:
+          values: [Moonlight Studio, Eco del Vacío, Página web, Canal de YouTube, Otro]
+      - name: texto
+        label: Texto
+        type: text
+      - name: imagen
+        label: Imagen
+        type: image
+        required: false

@@ -747,3 +747,30 @@ main {
 a.quest-shot-link:hover .quest-shot { transform: scale(1.03); }
 .quest-body { flex: 1; padding: 22px; display: flex; flex-direction: column; min-width: 0; }
 .quest-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 4px; }
+
+.log { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; display: grid; gap: 18px; }
+.log::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--panel-border); }
+.log-item { position: relative; min-width: 0; }
+.log-item::before { content: ""; position: absolute; left: -28px; top: 22px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: var(--glow); }
+.log-card { padding: 18px 20px; overflow-wrap: anywhere; }
+.log-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 0 0 8px; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.log-date { color: var(--muted); }
+.log-project { color: var(--accent-2); }
+.log-title { margin: 0 0 6px; font-family: var(--font-display); font-size: 1.05rem; letter-spacing: var(--title-spacing); }
+.log-text { margin: 0; color: var(--muted); }
+.log-img { display: block; max-width: 100%; height: auto; margin-top: 14px; border: 1px solid var(--panel-border); border-radius: var(--radius); }
+.log-status { margin: 0; }
+[data-theme="pixel"] .log-title { font-size: 0.72rem; line-height: 1.7; }
+[data-theme="pixel"] .log-meta { font-size: 0.55rem; line-height: 1.8; }
+[data-theme="pixel"] .log-item::before { border-radius: 0; }
+[data-theme="cyber"] .log-title::before { content: "> "; color: var(--accent-text); }
+[data-theme="fantasy"] .log-title::before { content: "Misión: "; color: var(--accent-text); }
+[data-theme="space"] .log-project::before { content: "Sector: "; color: var(--muted); }
+[data-theme="horror"] .log-date::before { content: "Día: "; color: var(--accent-text); }
+[data-theme="anime"] .log-title::after { content: " ✿"; color: var(--accent-text); }
+
+@media (max-width: 480px) {
+  .log { padding-left: 24px; }
+  .log-item::before { left: -24px; }
+  .log-card { padding: 16px; }
+}

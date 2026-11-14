@@ -66,6 +66,17 @@
     });
   });
 
+  document.addEventListener("DOMContentLoaded", function () {
+    var log = document.getElementById("bitacora");
+    if (!log || !("IntersectionObserver" in window)) return;
+    var seen = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      window.kTrack("bitacora_view");
+      seen.disconnect();
+    }, { threshold: 0.15 });
+    seen.observe(log);
+  });
+
   if (!enabled || !("PerformanceObserver" in window)) return;
 
   function send(name, value) {

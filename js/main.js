@@ -121,6 +121,90 @@
       });
   }
 
+  var logBox = document.getElementById("bitacora-lista");
+  if (logBox) loadLog(logBox);
+
+  function loadLog(container) {
+    var status = container.querySelector(".log-status");
+    function fail() {
+      if (status) status.textContent = "No se pudo cargar la bitácora por ahora.";
+    }
+
+    fetch("data/bitacora.json", { credentials: "same-origin" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (items) {
+        if (!Array.isArray(items)) throw new Error("formato");
+        items = items.filter(validLogItem).sort(function (a, b) {
+          return a.fecha < b.fecha ? 1 : a.fecha > b.fecha ? -1 : 0;
+        }).slice(0, 6);
+        if (!items.length) {
+          if (status) status.textContent = "Aún no hay entradas en la bitácora.";
+          return;
+        }
+        var list = document.createElement("ol");
+        list.className = "log";
+        items.forEach(function (it) { list.appendChild(logItem(it)); });
+        container.replaceChildren(list);
+      })
+      .catch(fail);
+  }
+
+  var LOG_PROJECTS = ["Moonlight Studio", "Eco del Vacío", "Página web", "Canal de YouTube", "Otro"];
+
+  function validLogItem(it) {
+    if (!it || typeof it !== "object") return false;
+    if (typeof it.titulo !== "string" || !it.titulo.trim()) return false;
+    if (typeof it.texto !== "string" || !it.texto.trim()) return false;
+    if (typeof it.fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(it.fecha)) return false;
+    return !isNaN(logDate(it.fecha));
+  }
+
+  function logDate(iso) {
+    var p = iso.split("-");
+    return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+  }
+
+  function logImagePath(path) {
+    if (typeof path !== "string") return null;
+    var clean = path.replace(/^\//, "");
+    if (clean.indexOf("img/bitacora/") !== 0 || clean.indexOf("..") !== -1 || /[?#\\:]/.test(clean)) return null;
+    return clean;
+  }
+
+  function logItem(it) {
+    var li = document.createElement("li");
+    li.className = "log-item";
+    var card = document.createElement("article");
+    card.className = "log-card panel";
+
+    var meta = document.createElement("p");
+    meta.className = "log-meta";
+    var time = document.createElement("time");
+    time.className = "log-date";
+    time.setAttribute("datetime", it.fecha);
+    time.textContent = logDate(it.fecha).toLocaleDateString("es-GT", { day: "numeric", month: "short", year: "numeric" });
+    meta.appendChild(time);
+    meta.appendChild(textEl("span", LOG_PROJECTS.indexOf(it.proyecto) === -1 ? "Otro" : it.proyecto, "log-project"));
+    card.appendChild(meta);
+
+    card.appendChild(textEl("h3", it.titulo.trim(), "log-title"));
+    card.appendChild(textEl("p", it.texto.trim(), "log-text"));
+
+    var src = logImagePath(it.imagen);
+    if (src) {
+      var img = document.createElement("img");
+      img.className = "log-img";
+      img.src = src;
+      img.alt = "Imagen de la entrada: " + it.titulo.trim();
+      img.loading = "lazy";
+      img.decoding = "async";
+      card.appendChild(img);
+    }
+
+    li.appendChild(card);
+    return li;
+  }
+
   function textEl(tag, text, cls) {
     var el = document.createElement(tag);
     el.textContent = text;
